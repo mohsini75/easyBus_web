@@ -33,28 +33,49 @@ class SideMenu extends StatelessWidget {
             },
           ),
           DrawerListTile(
+            title: "Students",
+            svgSrc: "assets/icons/menu_task.svg",
+            press: () {
+              locator<NavigationService>().navigateTo(StudentRoute);
+            },
+          ),
+          DrawerListTile(
             title: "Vehicle",
             svgSrc: "assets/icons/menu_task.svg",
             press: () {
-              locator<NavigationService>().navigateTo(DriversRoute);
+              locator<NavigationService>().navigateTo(VehicleRoute);
+            },
+          ),
+          DrawerListTile(
+            title: "Routes",
+            svgSrc: "assets/icons/menu_task.svg",
+            press: () {
+              locator<NavigationService>().navigateTo(RouteRoute);
+            },
+          ),
+          DrawerListTile(
+            title: "Maintenance Report",
+            svgSrc: "assets/icons/menu_task.svg",
+            press: () {
+              locator<NavigationService>().navigateTo(MaintenanceRoute);
             },
           ),
           DrawerListTile(
             title: "Complaints",
             svgSrc: "assets/icons/menu_task.svg",
             press: () {
-              locator<NavigationService>().navigateTo(DriversRoute);
+              locator<NavigationService>().navigateTo(ComplaintRoute);
             },
           ),
           DrawerListTile(
             title: "Notification",
             svgSrc: "assets/icons/menu_notification.svg",
             press: () {
-              locator<NavigationService>().navigateTo(DriversRoute);
+              locator<NavigationService>().navigateTo(NotificationRoute);
             },
           ),
           DrawerListTile(
-            title: "Profile",
+            title: "Log out",
             svgSrc: "assets/icons/menu_profile.svg",
             press: () {
               locator<NavigationService>().navigateTo(DriversRoute);

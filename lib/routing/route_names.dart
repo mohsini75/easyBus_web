@@ -4,3 +4,6 @@ const String VehicleRoute = "Vehicle";
 const String ComplaintRoute = "Complaints";
 const String NotificationRoute = "Notification";
 const String ProfileRoute = "Profile";
+const String StudentRoute = "Student";
+const String MaintenanceRoute = "Maintenance";
+const String RouteRoute = "Routes";

@@ -143,8 +143,8 @@ class DriverSignUp extends StatelessWidget {
           child: TextButton(
             onPressed: () {
               //Fluttertoast.showToast(msg: 'Driver Authenticated!');
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => DriverRegForm()));
+              showDialog(
+                  context: context, builder: (context) => DriverRegForm());
             },
             child: Text(
               "Create SignUp",

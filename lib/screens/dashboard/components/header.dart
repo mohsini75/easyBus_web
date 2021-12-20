@@ -56,7 +56,8 @@ class ProfileCard extends StatelessWidget {
       child: Row(
         children: [
           Image.asset(
-            "assets/images/profile_pic.png",
+            "assets/images/admin.png",
+            fit: BoxFit.cover,
             height: 38,
           ),
           if (!Responsive.isMobile(context))
