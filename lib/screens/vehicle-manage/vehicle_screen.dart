@@ -1,18 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easybus_web/screens/dashboard/components/header.dart';
 import 'package:easybus_web/screens/driver_manage/driver_signup.dart';
+import 'package:easybus_web/screens/vehicle-manage/vehicle_registration.dart';
 import 'package:flutter/material.dart';
 
-import 'edit_del_button.dart';
+import '../driver_manage/edit_del_button.dart';
 
-class AssignDriverScreen extends StatefulWidget {
-  const AssignDriverScreen({Key? key}) : super(key: key);
+class VehicleScreen extends StatefulWidget {
+  const VehicleScreen({Key? key}) : super(key: key);
 
   @override
-  _AssignDriverScreenState createState() => _AssignDriverScreenState();
+  _VehicleScreenState createState() => _VehicleScreenState();
 }
 
-class _AssignDriverScreenState extends State<AssignDriverScreen> {
+class _VehicleScreenState extends State<VehicleScreen> {
   List<DataRow> _buildList(
       BuildContext context, List<DocumentSnapshot> snapshot) {
     return snapshot.map((data) => _buildListItem(context, data)).toList();
@@ -23,10 +24,8 @@ class _AssignDriverScreenState extends State<AssignDriverScreen> {
 
     return DataRow(cells: [
       DataCell(Text(record.get('name'))),
-      DataCell(Text(record.get('cnic'))),
-      DataCell(Text(record.get('contact'))),
-      DataCell(Text(record.get('routeNo'))),
-      DataCell(Text(record.get('vehicle'))),
+      DataCell(Text(record.get('model'))),
+      DataCell(Text(record.get('regNo'))),
     ]);
   }
 
@@ -41,16 +40,16 @@ class _AssignDriverScreenState extends State<AssignDriverScreen> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Header("Assigned Drivers"),
+        Header("Registered Vehicles"),
         SizedBox(height: defaultPadding),
         FloatingActionButton.extended(
           onPressed: () {
-            showDialog(context: context, builder: (context) => DriverSignUp());
+            showDialog(context: context, builder: (context) => VehicleReg());
           },
           label: Row(
             children: [
               Icon(Icons.add),
-              Text("Add Driver"),
+              Text("Add Vehicle"),
             ],
           ),
         ),
@@ -58,19 +57,15 @@ class _AssignDriverScreenState extends State<AssignDriverScreen> {
           height: size.height * 0.8,
           width: size.width * 0.9,
           child: StreamBuilder<QuerySnapshot>(
-            stream: FirebaseFirestore.instance
-                .collection('users')
-                .where('role', isEqualTo: "driver")
-                .snapshots(),
+            stream:
+                FirebaseFirestore.instance.collection('vehicles').snapshots(),
             builder: (context, snapshot) {
               if (!snapshot.hasData) return LinearProgressIndicator();
 
               return DataTable(columns: [
                 DataColumn(label: Text('Name')),
-                DataColumn(label: Text('CNIC')),
-                DataColumn(label: Text('Contact')),
-                DataColumn(label: Text('Route')),
-                DataColumn(label: Text('Vehicle')),
+                DataColumn(label: Text('Model')),
+                DataColumn(label: Text('Reg NO')),
                 //DataColumn(label: Text('Actions')),
               ], rows: _buildList(context, snapshot.data!.docs));
             },
