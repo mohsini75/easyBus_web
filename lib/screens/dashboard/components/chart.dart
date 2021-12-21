@@ -28,7 +28,7 @@ class Chart extends StatelessWidget {
               children: [
                 SizedBox(height: defaultPadding),
                 Text(
-                  "256 actors",
+                  " actors",
                   // totalactor like 34 student ,34 driver, etc
                   style: Theme.of(context).textTheme.headline2!.copyWith(
                         color: Colors.white,
@@ -36,7 +36,7 @@ class Chart extends StatelessWidget {
                         height: 0.4,
                       ),
                 ),
-                Text("present")
+                Text("chart")
               ],
             ),
           ),

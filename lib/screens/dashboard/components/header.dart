@@ -55,10 +55,12 @@ class ProfileCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Image.asset(
-            "assets/images/admin.png",
-            fit: BoxFit.cover,
-            height: 38,
+          CircleAvatar(
+            child: Image.asset(
+              "assets/images/admin.png",
+              fit: BoxFit.cover,
+              height: 38,
+            ),
           ),
           if (!Responsive.isMobile(context))
             Padding(
@@ -66,7 +68,7 @@ class ProfileCard extends StatelessWidget {
                   const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
               child: Text("Mohsin"),
             ),
-          Icon(Icons.keyboard_arrow_down),
+         
         ],
       ),
     );

@@ -56,7 +56,7 @@ class FileInfoCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "256 Students",
+                info.PresentActor.toString(),
                 style: Theme.of(context)
                     .textTheme
                     .caption!

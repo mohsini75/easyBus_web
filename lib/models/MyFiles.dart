@@ -17,6 +17,7 @@ class CloudStorageInfo {
   });
 }
 
+
 List demoMyFiles = [
   CloudStorageInfo(
     title: "Reg. Students",
